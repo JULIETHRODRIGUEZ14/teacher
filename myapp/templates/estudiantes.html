@@ -1,18 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Estudiantes</title>
-</head>
-<body>
-    <div class="lista-container">
-    <h1>Listado de Estudiantes</h1>
-    <ul>
-        {% for estudiantes in estudiantes%}
-        <li>{{forloop.counter}}.{{estudiantes.name}}</li>
-        {% endfor%}
-    </ul>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Listas de Estudiantes</title>
+    </head>
+    <body>
+    
+    <div id="contenedorEstudiantes">
+        <div class="ficha" id="ficha1">
+            <h2>Ficha 1</h2>
+            <ul class="lista-estudiantes">
+                <li>maria castrillon</li>
+                <li>robert rodriguez</li>
+                <li>julieth castrillon</li>
+                <li><a href="/profile/#ficha1">Ficha 1</a></li>
+            </ul>
+        </div>
+    
+        <div class="ficha" id="ficha2">
+            <h2>Ficha 2</h2>
+            <ul class="lista-estudiantes">
+                <li>Estudiante 4</li>
+                <li>Estudiante 5</li>
+                <li>Estudiante 6</li>
+                <li><a href="/profile/#ficha2">Ficha 2</a></li>
+            </ul>
+        </div>
+    
+        <div class="ficha" id="ficha3">
+            <h2>Ficha 3</h2>
+            <ul class="lista-estudiantes">
+                <li>Estudiante 7</li>
+                <li>Estudiante 8</li>
+                <li>Estudiante 9</li>
+                <li><a href="/profile/#ficha3">Ficha 3</a></li>
+            </ul>
+        </div>
+
+        <div class="ficha" id="ficha4">
+            <h2>Ficha 4</h2>
+            <ul class="lista-estudiantes">
+                <li>Estudiante 10</li>
+                <li>Estudiante 11</li>
+                <li>Estudiante 12</li>
+                <li><a href="/profile/#ficha4">Ficha 4</a></li>
+            </ul>
+        </div>
+
+        <div class="ficha" id="ficha5">
+            <h2>Ficha 5</h2>
+            <ul class="lista-estudiantes">
+                <li>Estudiante 13</li>
+                <li>Estudiante 14</li>
+                <li>Estudiante 15</li>
+                <li><a href="/profile/#ficha5">Ficha 5</a></li>
+            </ul>
+        </div>
     </div>
-</body>
-</html>
+    
+    </body>
+    </html>
+
+
+<button id="agregarEstudiante">Agregar Estudiante</button>
+<button id="eliminarEstudiante">Eliminar Estudiante</button>
+</div>
+
+
+{% endblock%}
+
+
+    

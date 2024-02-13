@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from .models import Estudiantes, Task, Calificaciones
+from .models import Estudiantes, Task, Calificaciones, Anuncios
 from django.shortcuts import render
 #from django.shortcuts import get_object_or_404 #la funcion permite traer un objeto si no esxiste va a devolver una pagina de 404
 
@@ -11,7 +11,7 @@ from django.shortcuts import render
 
 def index(request):
     #hacemos un diccionario para que se vea en html
-    title = 'welcome'
+    title = 'WELCOME'
     return render(request,'index.html',{
         'title': title
     })
@@ -37,13 +37,27 @@ def estudiantes(request):
         'estudiantes' : estudiantes
     })
 
-def tasks(request, title):
+def tasks(request):
     #task = Task.objects.get(id=id)
     #task = Task.objects.get(title=title)
     #task = get_object_or_404(Task, id=id)# si no encuentra la tarea va a cabar alli mismo
+    tasks = Task.objects.all()
     #return HttpResponse("task: %s" % task.title)
-    return render (request, tasks.html)
+    return render (request, 'tasks.html',{
+        'tasks': tasks
+    })
+
+
 def calificaciones(request):
-    calificacion = calificacion.objects.get(id=id)
+    calificacion = Calificaciones.objects.all()
     #return HttpResponse("calificacion: %s" % calificacion)
-    return render (request, calificacion.html)
+    return render (request, 'calificaciones.html',{
+        'calificacion': calificacion
+    })
+
+def anuncios(request):
+
+    anuncio = Anuncios.objects.all()
+    return render(request, 'anuncios.html',{
+        'anuncio': anuncio #le pasamos un parametro 'anuncio'
+    })

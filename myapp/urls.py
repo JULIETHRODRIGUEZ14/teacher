@@ -8,7 +8,7 @@ urlpatterns = [
     path('hello/<str:username>', views.hello), #<username> es una especie de variable
     path('estudiantes/', views.estudiantes),
     path('tasks/', views.tasks),
-    path('estudiantes/', views.estudiantes),
-    path('calificaciones/', views.calificaciones)
+    path('calificaciones/', views.calificaciones),
+    path('anuncios/', views.anuncios),
  
 ]

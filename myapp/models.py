@@ -13,7 +13,7 @@ class Task(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()#textfields es para etxtos largos
     estudiantes = models.ForeignKey(Estudiantes, on_delete=models.CASCADE)#si se borra un projecto derivado a este se borra en cascada
-
+    done = models.BooleanField(default=False)
     def __str__(self):
         return self.title + "-" + self.estudiantes.name #concadenamos para que nos muestre todo
 
@@ -27,12 +27,13 @@ class Anuncios (models.Model):
 
 class Calificaciones (models.Model):
    estudiantes = models.ForeignKey(Estudiantes, on_delete=models.CASCADE)
-   calificacion = models.CharField(max_length=15)
+   notas = models.CharField(max_length=15)
+
 
    #campo para representar el estado de aprobacion
    estado_aprobacion = models.IntegerField(choices=[(0, 'No aprobo'), (1, 'Aprobo')])
 
    def __str__(self):
-       return f'{self.estudiantes} - {self.calificacion} - {self.get_estado_aprobacion_display()}'
+       return f'{self.estudiantes} - {self.notas} - {self.get_estado_aprobacion_display()}'
    
 

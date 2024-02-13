@@ -1,1 +1,69 @@
-<h1>{{profile}}</h1>
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/profile.css' %}">
+
+    <title>Fichas</title>
+</head>
+
+<body>
+
+    <h1>Teacher Profile</h1>
+
+    <div class="container">
+        <div class="docente">
+            <img src="{% static 'Docente.png' %}" alt="">
+            <p>Cristian Giovanny Gomez Gonzalez <br>
+                Ingeniero de Sistemas <br>
+                cristian@gmail.com <br>
+                3143550261 <br>
+            </p>
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <div class="ficha">
+            <h2><strong>Ficha: 2557861</strong></h2>
+            <p><strong>Analisis y Desarrollo de Software</strong></p>
+            <li><a href="/estudiantes/#ficha1">Ficha 1</a></li>
+        </div>
+
+        <div class="ficha">
+            <h2><strong>Ficha:1469763</strong></h2>
+            <p><strong>Logistica</strong></p>
+            <li><a href="/estudiantes/#ficha2">Ficha 2</a></li>
+        </div>
+
+        <div class="ficha">
+            <h2><strong>Ficha:3698481</strong></h2>
+            <p><strong>Artes graficas</strong></p>
+            <li><a href="/estudiantes/#ficha3">Ficha 3</a></li>
+        </div>
+
+        <div class="ficha">
+            <h2><strong>Ficha:6795931</strong></h2>
+            <p><strong>Obra civil</strong></p>
+            <li><a href="/estudiantes/#ficha4">Ficha 4</a></li>
+        </div>
+
+        <div class="ficha">
+            <h2><strong>Ficha:6185725</strong></h2>
+            <p><strong>Automatización</strong></p>
+            <li><a href="/estudiantes/#ficha5">Ficha 5</a></li>
+        </div>
+    </div>
+
+
+    {% endblock %}
+
+</body>
+
+</html>

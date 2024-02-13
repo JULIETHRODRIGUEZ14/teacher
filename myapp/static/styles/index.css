@@ -1,0 +1,83 @@
+body{
+    background-color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1{
+    color: black;
+    display: block;
+    justify-content: center;
+    text-align: center;
+}
+
+.menu-icon img {
+    width: 280px; /* Ancho de la imagen */
+    height: auto; /* Altura automática para mantener la relación de aspecto */
+    margin-right: 10px; /* Margen derecho para separar la imagen del texto */
+    
+}
+
+
+.navbar{
+    background: black;
+    padding: 10px 10px;
+
+}
+
+.navbar ul{
+    list-style-type: none;
+    margin: 10px;
+    padding: 10px;
+    overflow: hidden;
+    background-color: black;
+}
+
+.navbar li{
+    float: left;
+}
+.navbar li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 86px;
+    text-decoration: none;
+}
+.navbar li a:hover{
+    background-color: blueviolet;
+}
+
+@media only screen and (max-width: 768px){
+    .navbar ul{
+        display: none;
+    }
+    .menu-icon{
+        display: block;
+    }
+    .navbar ul.show{
+        display: block;
+    }
+    .navbar li {
+        float: none;
+    }
+    
+}
+
+.contenedor{
+    display: flex;
+}
+
+
+.imagen{
+    margin-left: 5px;/*ajusta el margen derecho para separar loselementos*/
+    border-radius: 40px ;
+}
+
+.home, h3{
+    margin: 0;
+    font-size: medium;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+
