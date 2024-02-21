@@ -14,6 +14,8 @@ class Task(models.Model):
     description = models.TextField()#textfields es para etxtos largos
     estudiantes = models.ForeignKey(Estudiantes, on_delete=models.CASCADE)#si se borra un projecto derivado a este se borra en cascada
     done = models.BooleanField(default=False)
+    estado = models.BooleanField(default=False)#estado de la tarea
+    
     def __str__(self):
         return self.title + "-" + self.estudiantes.name #concadenamos para que nos muestre todo
 

@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from .models import Estudiantes, Task, Calificaciones, Anuncios
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 #from django.shortcuts import get_object_or_404 #la funcion permite traer un objeto si no esxiste va a devolver una pagina de 404
-
+from .forms import CreateNewTask
 
 
 # Create your views here.
@@ -61,3 +61,39 @@ def anuncios(request):
     return render(request, 'anuncios.html',{
         'anuncio': anuncio #le pasamos un parametro 'anuncio'
     })
+
+def create_task(request):
+    return render(request, 'crear.html',{
+        'form': CreateNewTask
+    }) 
+
+def create_or_update_task(request):
+    if request.method == 'POST':
+        form = CreateNewTask(request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)
+            # Realiza alguna lógica para determinar si la tarea está aprobada o no
+            if task.done:
+                task.estado = True  # Marca la tarea como aprobada si está completada
+            else:
+                task.estado = False
+            task.save()
+            return redirect('tasks')
+    else:
+        form = CreateNewTask()
+    return render(request, 'crear.html', {'form': form})
+
+def calificar(request, tarea_id):
+    tarea = Task.objects.get(pk=tarea_id)# Obtener la tarea por su ID
+    if request.method == 'POST':
+        # Obtener la calificación del formulario (suponiendo que tienes un formulario para la calificación)
+        calificacion = request.POST.get('calificacion')
+        # Actualizar la tarea con la calificación
+        tarea.calificacion = calificacion
+        tarea.save()
+        # Redireccionar a alguna página, por ejemplo, la lista de tareas
+        return redirect('tasks')
+    else:
+        tarea = Task.objects.get(pk=tarea_id)# Obtener la tarea por su ID
+        # Si no es una solicitud POST, renderiza el formulario de calificación
+        return render(request, 'calificaciones.html', {'tarea': tarea})
